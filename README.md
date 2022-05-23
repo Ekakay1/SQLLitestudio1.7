@@ -54,3 +54,27 @@ SELECT PRODUCT,SUM(QUANTITY)
 FROM BIT_DB.FEBSALES
 WHERE LOCATION LIKE '%LOS ANGELES%'
 GROUP BY PRODUCT
+
+#9 Which locations in New York received at least 3 orders in January, and how many orders did they each receive?
+SELECT DISTINCT LOCATION, COUNT(ORDERID)
+FROM BIT_DB.JanSales
+WHERE LOCATION LIKE'%NEW YORK%'
+GROUP BY LOCATION 
+HAVING COUNT(ORDERID)>2
+
+#10 How many of each type of headphone were sold in February?
+SELECT SUM(QUANTITY) AS QUANTITY, PRODUCT
+FROM BIT_DB.FEBSALES
+WHERE PRODUCT LIKE'%HEADPHONES%'
+GROUP BY PRODUCT
+
+#11 What was the average amount spent per account in February? 
+
+
+
+#12 What was the average quantity of products purchased per account in February?
+
+
+
+
+#13 Which product brought in the most revenue in January and how much revenue did it bring in total?
