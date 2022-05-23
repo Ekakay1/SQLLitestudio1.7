@@ -82,8 +82,16 @@ LEFT JOIN BIT_db.CUSTOMERS CUST
 ON FEB.ORDERID=CUST.ORDER_ID
 
 #12 What was the average quantity of products purchased per account in February?
-
-
-
+SELECT SUM(QUANTITY)/COUNT(CUST.ACCTNUM)
+FROM BIT_DB.FEBSALES FEB 
+LEFT JOIN BIT_DB.CUSTOMERS CUST
+ON FEB.ORDERID=CUST.ORDER_ID
 
 #13 Which product brought in the most revenue in January and how much revenue did it bring in total?
+
+SELECT PRODUCT, 
+SUM (QUANTITY*PRICE)
+FROM BIT_db.JanSales
+GROUP BY PRODUCT
+ORDER BY SUM(QUANTITY*PRICE)DESC
+LIMIT 1 
